@@ -4,6 +4,16 @@ end
 
 class Array
   def hash
+
+    return 0.hash if self.empty?
+    xor = self[0].hash
+
+    self[1..-1].each_with_index do |num,i|
+      hash = num.hash
+      xor = (xor ^ hash)
+    end
+
+    xor
   end
 end
 
